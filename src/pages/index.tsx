@@ -3,6 +3,7 @@ import styled from "styled-components"
 
 import PurchaseButton from "../components/buttons/PurchaseButton"
 import CourseCard from "../components/cards/CourseCard"
+import FlutterBuild from "../components/builds/FlutterBuild"
 
 const IndexPage = () => {
   return (
@@ -27,6 +28,7 @@ const IndexPage = () => {
           </SmallText>
         </TextWrapper>
       </HeroWrapper>
+      <FlutterBuild />
     </Wrapper>
   )
 }
