@@ -1,11 +1,13 @@
 import * as React from "react"
 import styled from "styled-components"
+import { useWindowSize } from "react-use"
 
 import PurchaseButton from "../components/buttons/PurchaseButton"
 import CourseCard from "../components/cards/CourseCard"
 import FlutterBuild from "../components/builds/FlutterBuild"
 
 const IndexPage = () => {
+  const { width } = useWindowSize()
   return (
     <Wrapper>
       <HeroWrapper>
@@ -28,7 +30,9 @@ const IndexPage = () => {
           </SmallText>
         </TextWrapper>
       </HeroWrapper>
-      <FlutterBuild />
+      <FlutterWrapper width={width}>
+        <FlutterBuild />
+      </FlutterWrapper>
     </Wrapper>
   )
 }
@@ -39,6 +43,7 @@ const Wrapper = styled.div`
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(200.44deg, #4316db 13.57%, #9076e7 98.38%);
+  overflow: hidden;
 `
 
 const TextWrapper = styled.div`
@@ -122,4 +127,12 @@ const SmallText = styled.p`
   font-size: 13px;
   line-height: 130%;
   color: hsla(0, 0%, 100%, 0.5);
+`
+const FlutterWrapper = styled.div`
+  margin: 100px auto;
+
+  @media (max-width: 1440px) {
+    transform-origin: top left;
+    transform: scale(${props => props.width / 1440});
+  }
 `
