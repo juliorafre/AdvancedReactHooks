@@ -5,6 +5,7 @@ import { useWindowSize } from "react-use"
 import PurchaseButton from "../components/buttons/PurchaseButton"
 import CourseCard from "../components/cards/CourseCard"
 import FlutterBuild from "../components/builds/FlutterBuild"
+import GridSection from "../components/sections/GridSection"
 
 const IndexPage = () => {
   const { width } = useWindowSize()
@@ -30,6 +31,8 @@ const IndexPage = () => {
           </SmallText>
         </TextWrapper>
       </HeroWrapper>
+      <Divider />
+      <GridSection></GridSection>
       <FlutterWrapper width={width}>
         <FlutterBuild />
       </FlutterWrapper>
@@ -135,4 +138,10 @@ const FlutterWrapper = styled.div`
     transform-origin: top left;
     transform: scale(${props => props.width / 1440});
   }
+`
+const Divider = styled.div`
+  width: 300px;
+  height: 0.5px;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 60px auto 32px;
 `
