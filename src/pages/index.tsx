@@ -14,11 +14,13 @@ const IndexPage = ({ data }) => {
 
   const title = data.allContentfulCourses.edges[0].node.title
   const description = data.allContentfulCourses.edges[0].node.description
+  const illustration =
+    data.allContentfulCourses.edges[0].node.illustration.fixed.src
 
   return (
     <Wrapper>
       <HeroWrapper>
-        <CourseCard />
+        <CourseCard illustration={illustration} />
         <TextWrapper>
           <Logo src="/images/logos/react-logo.svg" alt="icon" />
           <Title>{title}</Title>
@@ -53,6 +55,11 @@ export const query = graphql`
         node {
           title
           description
+          illustration {
+            fixed {
+              src
+            }
+          }
           sections {
             title
             description
