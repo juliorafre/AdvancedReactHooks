@@ -1,4 +1,5 @@
 import * as React from "react"
+import { graphql } from "gatsby"
 import styled from "styled-components"
 import { useWindowSize } from "react-use"
 
@@ -7,19 +8,22 @@ import CourseCard from "../components/cards/CourseCard"
 import FlutterBuild from "../components/builds/FlutterBuild"
 import GridSection from "../components/sections/GridSection"
 
-const IndexPage = () => {
+const IndexPage = ({ data }) => {
   const { width } = useWindowSize()
+  console.log(data)
+
+  const title = data.allContentfulCourses.edges[0].node.title
+  const description = data.allContentfulCourses.edges[0].node.description
+
   return (
     <Wrapper>
       <HeroWrapper>
         <CourseCard />
         <TextWrapper>
           <Logo src="/images/logos/react-logo.svg" alt="icon" />
-          <Title>Build a web app with React Hooks</Title>
+          <Title>{title}</Title>
           <Caption>20 sections – 3 hours of videos</Caption>
-          <Description>
-            Learn how we build the new DesignCode site with React Hooks{" "}
-          </Description>
+          <Description>{description}</Description>
           <AuthorWrapper>
             <AuthorImage src="/images/avatars/Meng.png" alt="author" />
             <Caption>Taugth by Meng To</Caption>
@@ -41,6 +45,24 @@ const IndexPage = () => {
 }
 
 export default IndexPage
+
+export const query = graphql`
+  query IndexPageQuery {
+    allContentfulCourses {
+      edges {
+        node {
+          title
+          description
+          sections {
+            title
+            description
+            timestamp
+          }
+        }
+      }
+    }
+  }
+`
 
 const Wrapper = styled.div`
   width: 100%;
