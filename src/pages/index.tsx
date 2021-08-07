@@ -16,6 +16,7 @@ const IndexPage = ({ data }) => {
   const description = data.allContentfulCourses.edges[0].node.description
   const illustration =
     data.allContentfulCourses.edges[0].node.illustration.fixed.src
+  const sections = data.allContentfulCourses.edges[0].node.sections
 
   return (
     <Wrapper>
@@ -38,7 +39,7 @@ const IndexPage = ({ data }) => {
         </TextWrapper>
       </HeroWrapper>
       <Divider />
-      <GridSection></GridSection>
+      <GridSection sections={sections} />
       <FlutterWrapper width={width}>
         <FlutterBuild />
       </FlutterWrapper>

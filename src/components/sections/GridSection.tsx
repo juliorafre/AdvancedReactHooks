@@ -2,9 +2,9 @@ import React from "react"
 import styled from "styled-components"
 import SectionRow from "../rows/SectionRow"
 
-import { sections } from "../../data/sectionData"
+//import { sections } from "../../data/sectionData"
 
-function GridSection() {
+function GridSection({ sections }) {
   return (
     <Wrapper>
       <Title>20 topics</Title>
@@ -20,7 +20,7 @@ function GridSection() {
               index={idx + 1}
               title={section.title}
               description={section.description}
-              timestamp={section.duration}
+              timestamp={section.timestamp}
             />
           )
         })}
