@@ -1,23 +1,26 @@
 import React from "react"
 import styled from "styled-components"
 import { graphql } from "gatsby"
+import Layout from "../components/layout"
 
 function Section({ data }) {
   const sectionData = data.contentfulSection
   return (
-    <Wrapper>
-      <HeroWrapper>
-        <Illustration
-          src={sectionData.illustration.fixed.src}
-          alt="illustration"
-        />
-        <Title>Intro to React Hooks</Title>
-        <Description>
-          An overview of React Hooks and the frameworks you can use to build you
-          React application really fast.
-        </Description>
-      </HeroWrapper>
-    </Wrapper>
+    <Layout>
+      <Wrapper>
+        <HeroWrapper>
+          <Illustration
+            src={sectionData.illustration.fixed.src}
+            alt="illustration"
+          />
+          <Title>Intro to React Hooks</Title>
+          <Description>
+            An overview of React Hooks and the frameworks you can use to build
+            you React application really fast.
+          </Description>
+        </HeroWrapper>
+      </Wrapper>
+    </Layout>
   )
 }
 

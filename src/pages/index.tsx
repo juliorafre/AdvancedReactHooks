@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import styled from "styled-components"
 import { useWindowSize } from "react-use"
 
+import Header from "../components/header"
 import PurchaseButton from "../components/buttons/PurchaseButton"
 import CourseCard from "../components/cards/CourseCard"
 import FlutterBuild from "../components/builds/FlutterBuild"
@@ -19,31 +20,34 @@ const IndexPage = ({ data }) => {
   const sections = data.allContentfulCourses.edges[0].node.sections
 
   return (
-    <Wrapper>
-      <HeroWrapper>
-        <CourseCard illustration={illustration} />
-        <TextWrapper>
-          <Logo src="/images/logos/react-logo.svg" alt="icon" />
-          <Title>{title}</Title>
-          <Caption>20 sections – 3 hours of videos</Caption>
-          <Description>{description}</Description>
-          <AuthorWrapper>
-            <AuthorImage src="/images/avatars/Meng.png" alt="author" />
-            <Caption>Taugth by Meng To</Caption>
-          </AuthorWrapper>
-          <PurchaseButton />
-          <SmallText>
-            Purchase includes access to 30 courses. Over 80 hours of content,
-            including 12 hours for SwiftUI, iOS 13 and iOS 14.
-          </SmallText>
-        </TextWrapper>
-      </HeroWrapper>
-      <Divider />
-      <GridSection sections={sections} />
-      <FlutterWrapper width={width}>
-        <FlutterBuild />
-      </FlutterWrapper>
-    </Wrapper>
+    <>
+      <Header />
+      <Wrapper>
+        <HeroWrapper>
+          <CourseCard illustration={illustration} />
+          <TextWrapper>
+            <Logo src="/images/logos/react-logo.svg" alt="icon" />
+            <Title>{title}</Title>
+            <Caption>20 sections – 3 hours of videos</Caption>
+            <Description>{description}</Description>
+            <AuthorWrapper>
+              <AuthorImage src="/images/avatars/Meng.png" alt="author" />
+              <Caption>Taugth by Meng To</Caption>
+            </AuthorWrapper>
+            <PurchaseButton />
+            <SmallText>
+              Purchase includes access to 30 courses. Over 80 hours of content,
+              including 12 hours for SwiftUI, iOS 13 and iOS 14.
+            </SmallText>
+          </TextWrapper>
+        </HeroWrapper>
+        <Divider />
+        <GridSection sections={sections} />
+        <FlutterWrapper width={width}>
+          <FlutterBuild />
+        </FlutterWrapper>
+      </Wrapper>
+    </>
   )
 }
 
