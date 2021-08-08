@@ -1,8 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import SectionRow from "../rows/SectionRow"
-
-//import { sections } from "../../data/sectionData"
+import { Link } from "gatsby"
 
 function GridSection({ sections }) {
   return (
@@ -15,13 +14,14 @@ function GridSection({ sections }) {
       <Grid>
         {sections.map((section, idx) => {
           return (
-            <SectionRow
-              key={idx}
-              index={idx + 1}
-              title={section.title}
-              description={section.description}
-              timestamp={section.timestamp}
-            />
+            <Link to={`${section.slug}`} key={idx}>
+              <SectionRow
+                index={idx + 1}
+                title={section.title}
+                description={section.description}
+                timestamp={section.timestamp}
+              />
+            </Link>
           )
         })}
       </Grid>

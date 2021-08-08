@@ -1,12 +1,14 @@
 import React from "react"
 import styled from "styled-components"
+import { graphql } from "gatsby"
 
-function Section() {
+function Section({ data }) {
+  const sectionData = data.contentfulSection
   return (
     <Wrapper>
       <HeroWrapper>
         <Illustration
-          src="/images/illustrations/illustration-1.png"
+          src={sectionData.illustration.fixed.src}
           alt="illustration"
         />
         <Title>Intro to React Hooks</Title>
@@ -20,6 +22,22 @@ function Section() {
 }
 
 export default Section
+
+export const sectionQuery = graphql`
+  query SectionQuery($slug: String!) {
+    contentfulSection(slug: { eq: $slug }) {
+      title
+      description
+      slug
+      timestamp
+      illustration {
+        fixed {
+          src
+        }
+      }
+    }
+  }
+`
 
 const Wrapper = styled.div`
   display: grid;
