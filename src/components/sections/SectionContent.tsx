@@ -1,9 +1,24 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import { renderHtmlAst } from "../../functions/renderHtmlAst"
+import { UserContext } from "../../context/UserContext"
 
 function SectionContent({ htmlAst }) {
-  return <Wrapper>{renderHtmlAst(htmlAst)}</Wrapper>
+  const { isPro } = useContext(UserContext)
+  return (
+    <Wrapper>
+      {isPro ? (
+        renderHtmlAst(htmlAst)
+      ) : (
+        <BlockedWrapper>
+          <h2>
+            The content you are trying to access is only available for
+            subscribing users of Design+Code.
+          </h2>
+        </BlockedWrapper>
+      )}
+    </Wrapper>
+  )
 }
 
 export default SectionContent
@@ -343,3 +358,5 @@ const Wrapper = styled.div`
     color: #ff6666;
   }
 `
+
+const BlockedWrapper = styled(Wrapper)``
