@@ -23,7 +23,9 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-transformer-remark`,
-      options: {},
+      options: {
+        plugins: [`gatsby-remark-prismjs`],
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
