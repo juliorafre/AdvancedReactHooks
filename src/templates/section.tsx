@@ -2,9 +2,11 @@ import React from "react"
 import styled from "styled-components"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import SectionContent from "../components/sections/SectionContent"
 
 function Section({ data }) {
   const sectionData = data.contentfulSection
+  const markdown = sectionData.content.childMarkdownRemark
   return (
     <Layout>
       <Wrapper>
@@ -19,6 +21,7 @@ function Section({ data }) {
             you React application really fast.
           </Description>
         </HeroWrapper>
+        <SectionContent {...markdown} />
       </Wrapper>
     </Layout>
   )
@@ -36,6 +39,11 @@ export const sectionQuery = graphql`
       illustration {
         fixed {
           src
+        }
+      }
+      content {
+        childMarkdownRemark {
+          htmlAst
         }
       }
     }
