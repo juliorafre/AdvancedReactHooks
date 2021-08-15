@@ -3,12 +3,14 @@ import styled from "styled-components"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SectionContent from "../components/sections/SectionContent"
+import Seo from "../components/seo"
 
 function Section({ data }) {
   const sectionData = data.contentfulSection
   const markdown = sectionData.content.childMarkdownRemark
   return (
     <Layout>
+      <Seo title={sectionData.title} description={sectionData.description} />
       <Wrapper>
         <HeroWrapper>
           <Illustration

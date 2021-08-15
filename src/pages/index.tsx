@@ -3,7 +3,9 @@ import { graphql } from "gatsby"
 import styled from "styled-components"
 import { useWindowSize } from "react-use"
 
+import Layout from "../components/layout"
 import Header from "../components/header"
+import Seo from "../components/seo"
 import PurchaseButton from "../components/buttons/PurchaseButton"
 import CourseCard from "../components/cards/CourseCard"
 import FlutterBuild from "../components/builds/FlutterBuild"
@@ -20,8 +22,8 @@ const IndexPage = ({ data }) => {
   const sections = data.allContentfulCourses.edges[0].node.sections
 
   return (
-    <>
-      <Header />
+    <Layout>
+      <Seo title="Advanced React Hooks" />
       <Wrapper>
         <HeroWrapper>
           <CourseCard illustration={illustration} />
@@ -47,7 +49,7 @@ const IndexPage = ({ data }) => {
           <FlutterBuild />
         </FlutterWrapper>
       </Wrapper>
-    </>
+    </Layout>
   )
 }
 

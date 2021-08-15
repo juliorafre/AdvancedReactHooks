@@ -4,10 +4,14 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    title: `Design+Code`,
+    description: `Don’t skip design. Learn design and code, by building
+									real apps with React and Swift. Complete courses about
+									the best tools.`,
+    author: `@DesignCode`,
+    keywords: `react, hooks, courses, tutorials, web, ios, development`,
+    image:
+      "https://images.ctfassets.net/ooa29xqb8tix/24XYZktClnZjDjt2YNlGmX/d857becac30265e19ad8847365c68fbf/Metadata.png",
   },
   plugins: [
     {
@@ -45,7 +49,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `static/images/logos/logo.svg`,
       },
     },
     `gatsby-plugin-gatsby-cloud`,
